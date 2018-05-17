@@ -10,7 +10,7 @@ services:
     working_dir: /home/node/app
     environment:
       - NODE_ENV=production
-#    command: "node app.js"
+#    command: "node old-app.js"
     command: "npm start"
 #    links:
 #      - rabbitmq
