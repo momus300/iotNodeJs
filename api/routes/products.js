@@ -18,7 +18,7 @@ router.get('/:mac', (req, res, next) => {
 
     res.status(200).json({
         mac: mac,
-        message: 'Odebrane zadanie POST do /public/'
+        message: 'Odebrane zadanie POST do /public/ z nowym tekstem3'
     }) ;
 });
 
