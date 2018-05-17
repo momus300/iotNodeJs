@@ -10,16 +10,17 @@ services:
     working_dir: /home/node/app
     environment:
       - NODE_ENV=production
-    command: "node app.js"
-    links:
-      - rabbitmq
+#    command: "node app.js"
+    command: "node server.js"
+#    links:
+#      - rabbitmq
 #      - mongodb
 #
-  rabbitmq:
-    image: rabbitmq:management
-    ports:
-      - 35672:5672
-      - 45672:15672
+#  rabbitmq:
+#    image: rabbitmq:management
+#    ports:
+#      - 35672:5672
+#      - 45672:15672
 #
 #  mongodb:
 #    image: mongo
