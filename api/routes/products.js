@@ -26,16 +26,17 @@ router.get('/:mac', (req, res, next) => {
     });
     product
         .save()
-        .then(result => {
-            console.log(result)
-        })
-        .catch(err => console.log(err));
+        // .then(result => {
+        //     console.log(result)
+        // })
+        .catch(err => console.log(err))
+    ;
 
     res.status(201).json({
         message: 'OK',
         created: date,
-        set: req.query
-    }) ;
+        // set: req.query
+    });
 });
 
 module.exports = router;
