@@ -1,24 +1,40 @@
 const express = require('express');
 const router = express.Router();
+// const mongoose = require('mongoose');
 
-router.get('/', (req, res, next) => {
-   res.status(200).json({
-       message: 'Odebrane zadanie GET do /public/'
-   }) ;
-});
+const Product = require('../models/product');
 
-router.post('/', (req, res, next) => {
-    res.status(200).json({
-        message: 'Odebrane zadanie POST do /public/'
-    }) ;
-});
+// router.get('/', (req, res, next) => {
+//    res.status(200).json({
+//        message: 'Odebrane zadanie GET do /public/'
+//    }) ;
+// });
+//
+// router.post('/', (req, res, next) => {
+//     res.status(200).json({
+//         message: 'Odebrane zadanie POST do /public/'
+//     }) ;
+// });
 
 router.get('/:mac', (req, res, next) => {
-    const mac = req.params.mac;
+    var date = new Date();
+    var product = new Product({
+        // _id: new mongoose.Types.ObjectId(),
+        mac: req.params.mac,
+        created: date,
+        data: req.query
+    });
+    product
+        .save()
+        .then(result => {
+            console.log(result)
+        })
+        .catch(err => console.log(err));
 
-    res.status(200).json({
-        mac: mac,
-        message: 'Odebrane zadanie POST do /public/ z nowym tekstem3'
+    res.status(201).json({
+        message: 'OK',
+        created: date,
+        set: req.query
     }) ;
 });
 

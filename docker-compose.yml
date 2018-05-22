@@ -12,9 +12,9 @@ services:
       - NODE_ENV=production
 #    command: "node old-app.js"
     command: "npm start"
-#    links:
+    links:
 #      - rabbitmq
-#      - mongodb
+      - mongodb
 #
 #  rabbitmq:
 #    image: rabbitmq:management
@@ -22,11 +22,11 @@ services:
 #      - 35672:5672
 #      - 45672:15672
 #
-#  mongodb:
-#    image: mongo
-#    volumes:
-#      - ./db/:/data/db
-#    ports:
-#      - 127.0.0.1:27017:27017
+  mongodb:
+    image: mongo
+    volumes:
+      - ./db/:/data/db
+    ports:
+      - 127.0.0.1:27017:27017
 
 
