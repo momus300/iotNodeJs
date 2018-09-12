@@ -1,10 +1,8 @@
 const Product = require('../models/product');
 
 exports.product_get = (req, res) => {
-    var date = new Date();
     var product = new Product({
         mac: req.params.mac,
-        created: date,
         data: req.query
     });
 
