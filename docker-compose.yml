@@ -4,12 +4,12 @@ services:
     build: .
 #    user: node
     ports:
-      - 8081:8081
+      - 80:80
     volumes:
       - .:/home/node/app
+    env_file:
+      - .env
     working_dir: /home/node/app
-    environment:
-      - NODE_ENV=production
 #    command: "node old-app.js"
     command: "npm start"
     links:
